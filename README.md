@@ -1,0 +1,1 @@
+A simple, single session blog that captures the user's entries in a free text field and presents them as blog posts. This will utilise CSS for aesthetic and practical purposes (e.g. using media queries to ensure ease of view on both desktop and mobile).
