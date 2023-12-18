@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
+let postArray = []
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
@@ -11,6 +13,8 @@ app.get('/', (req, res) => {
 
 app.post("/submit", (req, res) => {
     console.log(req.body.postText);
+    postArray.push(req.body.postText);
+    console.log(postArray);
     res.render('index.ejs');
 })
 
