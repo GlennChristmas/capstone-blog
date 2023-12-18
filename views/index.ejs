@@ -9,9 +9,11 @@
         <div>
             <%=post %>
             <form action="/edit" method="post">
+                <input type="hidden" name="index" value="<%= index%>">
                 <input type="submit" value="Edit">
             </form>
             <form action="/delete" method="post">
+                <input type="hidden" name="index" value="<%= index%>">
                 <input type="submit" value="Delete">
             </form>
         </div>
