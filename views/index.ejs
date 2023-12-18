@@ -2,3 +2,14 @@
     <input type="text" name="postText" placeholder="Share your thoughts here!">
     <input type="submit" value="Submit">
 </form>
+
+
+<% if (locals.all_posts) { %>
+    <% all_posts.forEach((post) => { %> 
+        <div>
+            <body>
+                <%=post %>
+            </body>
+        </div>
+    <% }) %>
+<% } %>
