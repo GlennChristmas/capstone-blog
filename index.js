@@ -15,7 +15,7 @@ app.post("/submit", (req, res) => {
     console.log(req.body.postText);
     postArray.push(req.body.postText);
     console.log(postArray);
-    res.render('index.ejs');
+    res.render('index.ejs', { all_posts : postArray });
 })
 
 app.listen(3000, () => {
