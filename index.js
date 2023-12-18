@@ -18,6 +18,19 @@ app.post("/submit", (req, res) => {
     res.render('index.ejs', { postArray: postArray });
 })
 
+app.post("/edit", (req, res) => {
+    const index = req.body.index;
+    console.log(index); /* this will be used for editing - we'll just log this for now */
+})
+
+app.post("/delete", (req, res) => {
+    const index = req.body.index;
+    if(index >= 0 && index < postArray.length) {
+        postArray.splice(index,1);
+    }
+    res.render('index.ejs', { postArray: postArray});
+})
+
 app.listen(3000, () => {
    console.log('Server is running on port 3000');
 });
