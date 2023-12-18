@@ -8,7 +8,7 @@ let postArray = []
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-   res.render('index.ejs');
+   res.render('index.ejs', { postArray: postArray});
 });
 
 app.post("/submit", (req, res) => {
@@ -20,13 +20,29 @@ app.post("/submit", (req, res) => {
 
 app.post("/edit", (req, res) => {
     const index = req.body.index;
-    console.log(index); /* this will be used for editing - we'll just log this for now */
+    if(index >= 0 && index < postArray.length) {
+        res.render('edit.ejs', { post: postArray[index], index: index});
+    } else {
+        res.redirect('error.ejs')
+    }
+})
+
+app.post("/edit-submit", (req, res) => {
+    const index = req.body.index;
+    const updatedPost = req.body.postText;
+
+    if(index >= 0 && index < postArray.length) {
+        postArray[index] = updatedPost;
+    }
+    res.redirect('/');
 })
 
 app.post("/delete", (req, res) => {
     const index = req.body.index;
     if(index >= 0 && index < postArray.length) {
         postArray.splice(index,1);
+    } else {
+        res.redirect('error.ejs')
     }
     res.render('index.ejs', { postArray: postArray});
 })
