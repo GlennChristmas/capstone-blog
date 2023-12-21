@@ -1,6 +1,7 @@
 <%- include("header") %>
 
 <form action="/submit" method="post">
+    <textarea name="postTitle" placeholder="Give your post a title"></textarea>
     <textarea name="postText" placeholder="Share your thoughts here!"></textarea>
     <input type="submit" value="Submit">
 </form>
@@ -8,7 +9,8 @@
 <% if (locals.postArray) { %>
     <% postArray.forEach((post, index) => { %> 
         <div>
-            <%=post %>
+            <h2><%= post.title %></h2>
+            <p> <%= post.text %></p>
             <form action="/edit" method="post">
                 <input type="hidden" name="index" value="<%= index%>">
                 <input type="submit" value="Edit">

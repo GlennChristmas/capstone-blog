@@ -12,8 +12,12 @@ app.get('/', (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
+    console.log(req.body.postTitle);
     console.log(req.body.postText);
-    postArray.push(req.body.postText);
+    postArray.push({
+        title: req.body.postTitle,
+        text: req.body.postText,
+    });
     console.log(postArray);
     res.render('index.ejs', { postArray: postArray });
 })
@@ -21,7 +25,12 @@ app.post("/submit", (req, res) => {
 app.post("/edit", (req, res) => {
     const index = req.body.index;
     if(index >= 0 && index < postArray.length) {
-        res.render('edit.ejs', { post: postArray[index], index: index});
+        const post = postArray[index];
+
+        res.render('edit.ejs', 
+        { postTitle: post.title,
+          postText: post.text,
+          index: index});
     } else {
         res.redirect('error.ejs')
     }
@@ -32,9 +41,12 @@ app.post("/edit-submit", (req, res) => {
     const updatedPost = req.body.postText;
 
     if(index >= 0 && index < postArray.length) {
-        postArray[index] = updatedPost;
-    }
+        postArray[index].title = req.body.postTitle;
+        postArray[index].text = req.body.postText;
     res.redirect('/');
+    } else {
+    res.redirect('error.ejs') 
+    }
 })
 
 app.post("/delete", (req, res) => {
