@@ -1,8 +1,9 @@
+<%- include("header") %>
+
 <form action="/submit" method="post">
     <textarea name="postText" placeholder="Share your thoughts here!"></textarea>
     <input type="submit" value="Submit">
 </form>
-
 
 <% if (locals.postArray) { %>
     <% postArray.forEach((post, index) => { %> 
@@ -19,3 +20,6 @@
         </div>
     <% }) %>
 <% } %>
+
+
+<%- include("footer") %>
