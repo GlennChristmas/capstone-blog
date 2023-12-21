@@ -13,17 +13,21 @@
 
 <% if (locals.postArray) { %>
     <% postArray.forEach((post, index) => { %> 
-        <div>
+        <div class = "post-view-container">
             <h2><%= post.title %></h2>
             <p> <%= post.text %></p>
-            <form action="/edit" method="post">
-                <input type="hidden" name="index" value="<%= index%>">
-                <input type="submit" value="Edit">
-            </form>
-            <form action="/delete" method="post">
-                <input type="hidden" name="index" value="<%= index%>">
-                <input type="submit" value="Delete">
-            </form>
+            <div class = "post-action-container">
+                <form action="/edit" method="post">
+                    <input type="hidden" name="index" value="<%= index %>">
+                    <input type="submit" value="Edit">
+                </form>
+            </div>
+            <div class = "post-action-container">
+                <form action="/delete" method="post">
+                    <input type="hidden" name="index" value="<%= index %>">
+                    <input type="submit" value="Delete">
+                </form>
+            </div>
         </div>
     <% }) %>
 <% } %>
