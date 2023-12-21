@@ -6,6 +6,7 @@ const port = 3000;
 let postArray = []
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
    res.render('index.ejs', { postArray: postArray});
