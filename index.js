@@ -12,8 +12,12 @@ app.get('/', (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
+    console.log(req.body.postTitle);
     console.log(req.body.postText);
-    postArray.push(req.body.postText);
+    postArray.push({
+        title: req.body.postTitle,
+        text: req.body.postText,
+    });
     console.log(postArray);
     res.render('index.ejs', { postArray: postArray });
 })
