@@ -1,10 +1,14 @@
 <%- include("header") %>
 
-<form action="/edit-submit" method="post">
-    <input type="hidden" name="index" value="<%= locals.index %>">
-    <textarea name="postTitle"><%= locals.postTitle %></textarea>
-    <textarea name="postText"><%= locals.postText %></textarea>
-    <input type="submit" value="Save Changes">
-</form>
+<div class="form-container">
+    <form action="/edit-submit" method="post">
+        <input type="hidden" name="index" value="<%= locals.index %>">
+        <div class="textarea-container">
+            <textarea name="postTitle"><%= locals.postTitle %></textarea>
+            <textarea name="postText"><%= locals.postText %></textarea>
+        </div>
+        <input type="submit" value="Save Changes">
+    </form>
+</div>
 
 <%- include("footer") %>
