@@ -2,7 +2,8 @@
 
 <form action="/edit-submit" method="post">
     <input type="hidden" name="index" value="<%= locals.index %>">
-    <textarea name="postText"><%= locals.post %></textarea>
+    <textarea name="postTitle"><%= locals.postTitle %></textarea>
+    <textarea name="postText"><%= locals.postText %></textarea>
     <input type="submit" value="Save Changes">
 </form>
 
