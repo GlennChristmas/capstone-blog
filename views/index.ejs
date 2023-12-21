@@ -1,10 +1,15 @@
 <%- include("header") %>
 
-<form action="/submit" method="post">
-    <textarea name="postTitle" placeholder="Give your post a title"></textarea>
-    <textarea name="postText" placeholder="Share your thoughts here!"></textarea>
-    <input type="submit" value="Submit">
-</form>
+<div class = "form-container">
+    <form action="/submit" method="post">
+        <div class = "textarea-container">
+            <textarea name="postTitle" placeholder="Give your post a title"></textarea>
+            <textarea name="postText" placeholder="Share your thoughts here!"></textarea>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
 
 <% if (locals.postArray) { %>
     <% postArray.forEach((post, index) => { %> 
