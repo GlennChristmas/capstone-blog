@@ -88,3 +88,9 @@ textarea{
 .link-button:hover{
     background-color: #FB4D3D;
 }
+
+.footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
