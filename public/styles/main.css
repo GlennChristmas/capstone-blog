@@ -60,3 +60,23 @@ textarea{
         height: 100px;
     }
 }
+
+.link-button{
+    display: flex;
+    border-radius: 10px;
+    color: white;
+    background-color: #E40066;
+    height: 50px;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    border: solid;
+    border-radius: 5px;
+    border-color: white;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.link-button:hover{
+    background-color: #FB4D3D;
+}
