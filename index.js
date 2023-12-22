@@ -4,12 +4,15 @@ const app = express();
 const port = 3000;
 
 let postArray = []
+let currentDate = new Date();
+let currentYear = currentDate.getFullYear();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-   res.render('index.ejs', { postArray: postArray});
+   res.render('index.ejs', { postArray: postArray,
+                             currentYear: currentYear});
 });
 
 app.post("/submit", (req, res) => {
@@ -25,7 +28,8 @@ app.post("/submit", (req, res) => {
         }
     )};
     console.log(postArray);
-    res.render('index.ejs', { postArray: postArray });
+    res.render('index.ejs', { postArray: postArray,
+                              currentYear: currentYear });
 })
 
 app.post("/edit", (req, res) => {
@@ -36,7 +40,8 @@ app.post("/edit", (req, res) => {
         res.render('edit.ejs', 
         { postTitle: post.title,
           postText: post.text,
-          index: index});
+          index: index,
+          currentYear: currentYear});
     } else {
         res.render('error.ejs')
     }
@@ -63,7 +68,8 @@ app.post("/delete", (req, res) => {
     } else {
         res.redirect('error.ejs')
     }
-    res.render('index.ejs', { postArray: postArray});
+    res.render('index.ejs', { postArray: postArray,
+                              currentYear: currentYear});
 })
 
 app.listen(3000, () => {
