@@ -4,12 +4,15 @@ const app = express();
 const port = 3000;
 
 let postArray = []
+var currentDate = new Date();
+var currentYear = currentDate.getFullYear();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-   res.render('index.ejs', { postArray: postArray});
+   res.render('index.ejs', { postArray: postArray,
+                             currentYear: currentYear});
 });
 
 app.post("/submit", (req, res) => {
