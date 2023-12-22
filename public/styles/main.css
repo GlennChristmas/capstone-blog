@@ -61,6 +61,14 @@ textarea{
     }
 }
 
+.header-container{
+    display: grid;
+    align-items: center;
+    grid-template-rows: 100px 50px 50px;
+    row-gap: 10px;
+    margin-bottom: 30px;
+}
+
 .link-button{
     display: flex;
     border-radius: 10px;
