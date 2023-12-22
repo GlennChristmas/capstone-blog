@@ -15,10 +15,15 @@ app.get('/', (req, res) => {
 app.post("/submit", (req, res) => {
     console.log(req.body.postTitle);
     console.log(req.body.postText);
-    postArray.push({
-        title: req.body.postTitle,
-        text: req.body.postText,
-    });
+
+    if((req.body.postTitle.length == 0) || (req.body.postText.length == 0)){
+        console.log("User has attempted to enter a blank blog post, resetting page.")
+    } else {
+        postArray.push({
+            title: req.body.postTitle,
+            text: req.body.postText
+        }
+    )};
     console.log(postArray);
     res.render('index.ejs', { postArray: postArray });
 })
