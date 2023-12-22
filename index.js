@@ -38,20 +38,21 @@ app.post("/edit", (req, res) => {
           postText: post.text,
           index: index});
     } else {
-        res.redirect('error.ejs')
+        res.render('error.ejs')
     }
 })
 
 app.post("/edit-submit", (req, res) => {
     const index = req.body.index;
-    const updatedPost = req.body.postText;
+    const updatedTitle = req.body.postTitle;
+    const updatedText = req.body.postText;
 
-    if(index >= 0 && index < postArray.length) {
+    if(index >= 0 && index < postArray.length && updatedTitle.length > 0 && updatedText.length > 0) {
         postArray[index].title = req.body.postTitle;
         postArray[index].text = req.body.postText;
     res.redirect('/');
     } else {
-    res.redirect('error.ejs') 
+        res.render('error.ejs')
     }
 })
 
