@@ -4,6 +4,15 @@ html * {
     color: white;
 }
 
+input{
+    height: 20px;
+    width: 100px;
+    background-color: white;
+    color: #345995;
+    border-radius: 10px;
+    border: 0;
+}
+
 .form-container{
     display: grid;
     justify-items: center;
@@ -39,6 +48,6 @@ textarea{
     display: grid;
     justify-items: center;
     align-content: center;
-    grid-template-columns: 75px 75px;
+    grid-template-columns: 125px 125px;
     grid-template-rows: 25px;
 }
