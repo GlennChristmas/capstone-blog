@@ -2,24 +2,41 @@ html * {
     font-family: Arial, sans-serif !important;
 }
 
+.form-container{
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+
 .textarea-container{
     display: grid;
-    grid-template-columns: 500px;
+    justify-items: center;
+    align-content: center;
+    grid-template-columns: auto;
     grid-template-rows: 25px 250px;
-    row-gap: 20px;
+    row-gap: 10px;
     padding-bottom: 20px;
+}
 
+textarea{
+    width: 500px;
 }
 
 .post-view-container{
     display: grid;
-    grid-template-columns: 500px;
+    justify-items: center;
+    align-content: center;
+    margin: auto;
+    text-align: justify;
+    max-width: 500px;
     grid-template-rows: 25px auto 25px;
     row-gap: 20px;
 }
 
 .post-action-container{
     display: grid;
+    justify-items: center;
+    align-content: center;
     grid-template-columns: 75px 75px;
     grid-template-rows: 25px;
 }
