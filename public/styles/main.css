@@ -1,5 +1,7 @@
 html * {
     font-family: Arial, sans-serif !important;
+    background-color: #345995;
+    color: white;
 }
 
 .form-container{
